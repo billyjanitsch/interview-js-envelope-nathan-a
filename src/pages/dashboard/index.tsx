@@ -58,6 +58,9 @@ export function Dashboard({
             allocation={envelope.allocation}
             envelope={envelope}
             spent={byEnvelope[envelope.id] ?? 0}
+            transactions={transactions.filter(
+              (tx) => tx.envelopeId === envelope.id,
+            )}
           />
         ))}
       </div>
@@ -71,6 +74,7 @@ export function Dashboard({
             allocation={null}
             envelope={unallocated}
             spent={unallocatedSpent}
+            transactions={transactions.filter((tx) => tx.envelopeId === null)}
           />
         </div>
       )}
